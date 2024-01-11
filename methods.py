@@ -87,12 +87,3 @@ def get_orders_list(params=None) -> requests.Response:
 def verify_response_code(response: requests.Response, code: int):
     assert response.status_code == code
 
-
-@allure.step('Проверяем, что запрос успешен')
-def verify_response_returns_success(response: requests.Response):
-    assert 200 <= response.status_code < 300
-
-
-@allure.step('Проверяем, что запрос ошибочен')
-def verify_response_returns_error(response: requests.Response):
-    assert response.status_code >= 400
